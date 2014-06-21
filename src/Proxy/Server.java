@@ -79,8 +79,8 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
     
     @Override
-    public int insertClient(String usuario, String password, String nombre){
-        return dbu.insertClient(usuario, password,nombre);
+    public int insertClient(String usuario, String password, String nombre, String imagen){
+        return dbu.insertClient(usuario, password,nombre, imagen);
     }
     
     @Override
@@ -108,6 +108,7 @@ public class Server extends UnicastRemoteObject implements IServer {
         }
     }
 
+    @Override
     public ArrayList<String> FindFriends(String username){
         return dbu.getFriends(username);
     }

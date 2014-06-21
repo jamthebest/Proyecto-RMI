@@ -23,7 +23,7 @@ public interface IServer extends Remote {
     
     public int getUserIdByUsername(String username) throws RemoteException;
     
-    public int insertClient(String u,String p,String nombre) throws RemoteException;
+    public int insertClient(String u,String p,String nombre, String imagen) throws RemoteException;
     
     public ArrayList<Message> getConversationFromDatabase(int client, int friend) throws RemoteException;
     

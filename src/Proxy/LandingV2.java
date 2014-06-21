@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
@@ -31,13 +32,21 @@ public class LandingV2 extends javax.swing.JFrame {
     private final HTMLDocument doc = new HTMLDocument();
     private int chatUser;
     private final Client client;
+    private final dbUsers db;
     int cont = 1;
     
     public LandingV2(final Client client) {
         initComponents();
         setLocationRelativeTo(null);
         this.client = client;
+        db = new dbUsers();
+        db.connectDataBase();
         right_sidebar.setVisible(false);        
+        ImageIcon ic = new ImageIcon(db.getFoto(client.getUser()));
+        if(ic != null){
+            //ic.paintIcon(null, null, 78, 78);
+            foto.setIcon(ic);
+        }
         this.setVisible(true);
         Color containerColor = new Color(250,250,250);
         Color headerColor = new Color(223,223,216);
@@ -80,6 +89,7 @@ public class LandingV2 extends javax.swing.JFrame {
                 }
             }
         });
+        foto.setSize(78, 78);
     }
     
     public void hello(ArrayList<String> array){        

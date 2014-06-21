@@ -62,13 +62,24 @@ public class dbUsers {
         }
         return false;
     }
-    public int insertClient(String u, String p,String nombre){
+    public int insertClient(String u, String p,String nombre, String imagen){
+        String res = "";
+        for (int i = 0; i < imagen.length(); i++) {
+            char x = imagen.charAt(i);
+            if (x != '\\') {
+                res += Character.toString(x);
+            }else{
+                res += "/";
+            }
+        }
+        imagen = res;
+        //System.err.println(imagen);
         try {
-            preparedStatement = connect.prepareStatement("INSERT INTO `db_os_users`.`usuarios` ( `username`,`password`,`nombre_completo`,`estado`) "+"VALUES ( '"+u+"','"+p+"','"+nombre+"','0')");
+            preparedStatement = connect.prepareStatement("INSERT INTO `db_os_users`.`usuarios` ( `username`,`password`,`nombre_completo`,`foto`,`estado`) "+"VALUES ( '"+u+"','"+p+"','"+nombre+"','"+imagen+"','0')");
             return preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("No se pudo agregar el cliente "+u+" a la base de datos.");
-        }
+        }//*/
         return -1;
     }
     public String[] getClient(String u){
@@ -178,6 +189,31 @@ public class dbUsers {
             System.out.println("Error extrayendo la informacion del usuario");
         }        
         return  conversation;
+    }
+    
+    public String getFoto(String u){
+        try {
+            statement = connect.createStatement();
+            String query = "SELECT foto FROM db_os_users.usuarios "
+                    + "WHERE username = '"+u+"'";
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                String re = resultSet.getString("foto");
+                String res = "";
+                for (int i = 0; i < re.length(); i++) {
+                    char x = re.charAt(i);
+                    if (x != '/') {
+                        res += Character.toString(x);
+                    }else{
+                        res += "\\";
+                    }
+                }
+                return res;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error extrayendo la informacion del usuario");
+        }        
+        return "";
     }
     
     public int enviarSolicitud(int u1, int u2){
