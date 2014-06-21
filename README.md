@@ -1,4 +1,3 @@
 RMIChat
-=======
 
-Operative Systems Project.
+Proyecto RMI de Sistemas Operativos 2
