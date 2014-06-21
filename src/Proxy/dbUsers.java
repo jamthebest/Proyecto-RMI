@@ -202,11 +202,11 @@ public class dbUsers {
                 String res = "";
                 for (int i = 0; i < re.length(); i++) {
                     char x = re.charAt(i);
-                    if (x != '/') {
+                   // if (x != '/') {
                         res += Character.toString(x);
-                    }else{
-                        res += "\\";
-                    }
+                   // }else{
+                       // res += "\\";
+                   // }
                 }
                 return res;
             }

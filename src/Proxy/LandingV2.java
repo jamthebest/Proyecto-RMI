@@ -5,6 +5,9 @@
 package Proxy;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -43,9 +46,18 @@ public class LandingV2 extends javax.swing.JFrame {
         db.connectDataBase();
         right_sidebar.setVisible(false);        
         ImageIcon ic = new ImageIcon(db.getFoto(client.getUser()));
+        //lineas agregadas
+        Image img = ic.getImage();
+        BufferedImage bi = new BufferedImage(78, 78, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = bi.createGraphics();
+        g.drawImage(img, 0, 0, 78, 78, null);
+        ImageIcon newIcon = new ImageIcon(bi);
         if(ic != null){
             //ic.paintIcon(null, null, 78, 78);
-            foto.setIcon(ic);
+            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            System.out.println("esto traeeeeeeeeeeeeeeeeeeeeeeeeee :"+ic.getDescription());
+            foto.setIcon(newIcon);
+            foto.setSize(78, 78);
         }
         this.setVisible(true);
         Color containerColor = new Color(250,250,250);
@@ -89,7 +101,7 @@ public class LandingV2 extends javax.swing.JFrame {
                 }
             }
         });
-        foto.setSize(78, 78);
+      
     }
     
     public void hello(ArrayList<String> array){        
