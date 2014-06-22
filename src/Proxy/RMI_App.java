@@ -68,7 +68,7 @@ public class RMI_App extends javax.swing.JFrame {
         frmimagen.setTitle("Seleccione una imagen");
         frmimagen.setName("frmimagen"); // NOI18N
 
-        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -89,8 +89,6 @@ public class RMI_App extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(424, 512));
         setResizable(false);
-
-        container.setBounds(new java.awt.Rectangle(0, 0, 700, 940));
 
         loginPanel.setForeground(new java.awt.Color(255, 255, 255));
         loginPanel.setMaximumSize(new java.awt.Dimension(700, 700));

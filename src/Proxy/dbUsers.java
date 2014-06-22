@@ -101,6 +101,23 @@ public class dbUsers {
         }
         return datos;
     }
+    
+    public String getUsername(int id){
+        String user = "";
+        int i=0;
+        try {
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("SELECT username FROM db_os_users.usuarios WHERE id_user = '"+id+"'");
+            while(resultSet.next()){
+                return resultSet.getString("username");
+            }
+            //return datos;
+        } catch (SQLException ex) {
+            System.out.println("Error extrayendo la informacion del usuario: "+id +"\n"+ex.getMessage());
+        }
+        return user;
+    }
+    
     public void setClienteOnline(String u){
         try {
             System.out.print(u);
@@ -251,7 +268,6 @@ public class dbUsers {
         return  usuarios;
     }
     
-    //terminar esto
     public void responderSolicitud(int user, int resp, boolean respuesta){
         if (respuesta) {
             try {
@@ -315,6 +331,51 @@ public class dbUsers {
         }
         return Friends;
     }
+    
+    public int Post(int user, String comment, String imagen){
+        String res = "";
+        for (int i = 0; i < imagen.length(); i++) {
+            char x = imagen.charAt(i);
+            if (x != '\\') {
+                res += Character.toString(x);
+            }else{
+                res += "/";
+            }
+        }
+        imagen = res;
+        
+        try {
+            preparedStatement = connect.prepareStatement("INSERT INTO `db_os_users`.`comentarios` "
+                    + "( `id_user`,`comentario`, `imagen`) "+"VALUES ( '"+user+"','"+comment+"','"+imagen+"')");
+            int ret = preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Post Publicado!");
+            return ret;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo realizar el Post!\n" + ex.getMessage());
+        }
+        return -1;
+    }
+    
+    public ArrayList<ArrayList<String>>getPosts(String usuario){
+        ArrayList <String> Post = new ArrayList<>();
+        ArrayList <ArrayList<String>> Posts =new ArrayList<>();
+        try {
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("SELECT * from comentarios where id_user = (select id_user from "
+                    + "usuarios where username = '"+usuario+"') or id_user in (SELECT u.id_user FROM usuarios u inner join "
+                    + "amigos a on a.id_user2 = u.id_user or a.id_user = u.id_user where u.id_user != (select id_user "
+                    + "from usuarios where username = '"+usuario+"'))");
+            while(resultSet.next()){
+                Post.add(resultSet.getString("id_user"));
+                Post.add(resultSet.getString("comentario"));
+                Post.add(resultSet.getString("imagen"));
+                Posts.add(Post);
+                Post = new ArrayList<>();
+            }
+            //return datos;
+        } catch (SQLException ex) {
+            System.out.println("Error extrayendo la informacion del usuario: "+usuario);
+        }
+        return Posts;
+    }
 }
-
-
