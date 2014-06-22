@@ -24,13 +24,13 @@ public class RMI_App extends javax.swing.JFrame {
     public RMI_App() {
         initComponents();
         this.txtUser.requestFocus();
-        Color containerColor = new Color(250,250,250);
+        Color containerColor = new Color(241,241,234);
         Color headerColor = new Color(223,223,216);
         Color content = new Color(244,244,238);
         getContentPane().setBackground(containerColor);
         container.setBackground(containerColor);
         loginPanel.setBackground(content);
-        setSize(950, 700);
+        setSize(412, 534);
         setLocationRelativeTo(null);
         
     }
@@ -87,21 +87,28 @@ public class RMI_App extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(10000, 10000));
-        setMinimumSize(new java.awt.Dimension(940, 700));
-        setPreferredSize(new java.awt.Dimension(950, 700));
+        setMaximumSize(new java.awt.Dimension(424, 512));
+        setResizable(false);
 
+        container.setBounds(new java.awt.Rectangle(0, 0, 700, 940));
+
+        loginPanel.setForeground(new java.awt.Color(255, 255, 255));
+        loginPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel3.setText("Usuario: ");
-        jLabel3.setMaximumSize(null);
-        jLabel3.setMinimumSize(null);
         jLabel3.setPreferredSize(new java.awt.Dimension(70, 25));
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel4.setText("Contraseña: ");
-        jLabel4.setMaximumSize(null);
-        jLabel4.setMinimumSize(null);
         jLabel4.setPreferredSize(new java.awt.Dimension(80, 40));
 
+        btnIniciarSesion.setBackground(new java.awt.Color(70, 162, 126));
+        btnIniciarSesion.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(70, 162, 126)));
+        btnIniciarSesion.setBorderPainted(false);
         btnIniciarSesion.setNextFocusableComponent(txtNombre);
         btnIniciarSesion.setPreferredSize(new java.awt.Dimension(120, 25));
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -114,21 +121,24 @@ public class RMI_App extends javax.swing.JFrame {
 
         txtPassword.setNextFocusableComponent(btnIniciarSesion);
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel5.setText("Usuario: ");
-        jLabel5.setMaximumSize(null);
-        jLabel5.setMinimumSize(null);
         jLabel5.setPreferredSize(new java.awt.Dimension(70, 25));
 
         txtUserSignup.setNextFocusableComponent(txtPasswordSignup);
 
         txtPasswordSignup.setNextFocusableComponent(btnRegistrarse);
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel6.setText("Contraseña: ");
-        jLabel6.setMaximumSize(null);
-        jLabel6.setMinimumSize(null);
         jLabel6.setPreferredSize(new java.awt.Dimension(80, 40));
 
+        btnRegistrarse.setBackground(new java.awt.Color(70, 162, 126));
+        btnRegistrarse.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 162, 126), 0));
+        btnRegistrarse.setBorderPainted(false);
         btnRegistrarse.setNextFocusableComponent(txtUser);
         btnRegistrarse.setPreferredSize(new java.awt.Dimension(120, 25));
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -137,15 +147,19 @@ public class RMI_App extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel7.setText("Nombre: ");
         jLabel7.setPreferredSize(new java.awt.Dimension(70, 25));
 
         txtNombre.setNextFocusableComponent(txtUserSignup);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel1.setText("Iniciar Sesión");
 
+        jLabel2.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
         jLabel2.setText("Registrarse Gratis Aquí");
 
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel8.setText("Imagen");
 
         btnImagen.setText("Seleccionar Imagen ...");
@@ -164,9 +178,7 @@ public class RMI_App extends javax.swing.JFrame {
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)))
+                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,15 +199,17 @@ public class RMI_App extends javax.swing.JFrame {
                             .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUserSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPasswordSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnImagen))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +245,7 @@ public class RMI_App extends javax.swing.JFrame {
                     .addComponent(btnImagen))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
@@ -240,14 +254,14 @@ public class RMI_App extends javax.swing.JFrame {
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(containerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(containerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -257,14 +271,14 @@ public class RMI_App extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

@@ -40,6 +40,7 @@ public class LandingV2 extends javax.swing.JFrame {
     
     public LandingV2(final Client client) {
         initComponents();
+         setSize(412, 534);
         setLocationRelativeTo(null);
         this.client = client;
         db = new dbUsers();
@@ -59,6 +60,7 @@ public class LandingV2 extends javax.swing.JFrame {
             foto.setIcon(newIcon);
             foto.setSize(78, 78);
         }
+         
         this.setVisible(true);
         Color containerColor = new Color(250,250,250);
         Color headerColor = new Color(223,223,216);
@@ -221,8 +223,10 @@ public class LandingV2 extends javax.swing.JFrame {
 
         foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProxyImages/user.png"))); // NOI18N
 
+        txtuserid.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         txtuserid.setText("Mi Usuario es: ");
 
+        cerrarSesion.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         cerrarSesion.setText("Salir");
         cerrarSesion.setPreferredSize(new java.awt.Dimension(78, 78));
         cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -241,7 +245,7 @@ public class LandingV2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtuserid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         headerLayout.setVerticalGroup(
@@ -249,13 +253,10 @@ public class LandingV2 extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(headerLayout.createSequentialGroup()
-                        .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtuserid)
-                            .addComponent(foto))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(cerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtuserid)
+                    .addComponent(foto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         right_sidebar.setPreferredSize(new java.awt.Dimension(544, 520));
@@ -263,6 +264,7 @@ public class LandingV2 extends javax.swing.JFrame {
         textPanel.setEditable(false);
         messagePanel.setViewportView(textPanel);
 
+        btnEnviarMensaje.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         btnEnviarMensaje.setText("Enviar");
         btnEnviarMensaje.setPreferredSize(new java.awt.Dimension(138, 78));
         btnEnviarMensaje.addActionListener(new java.awt.event.ActionListener() {
@@ -271,11 +273,13 @@ public class LandingV2 extends javax.swing.JFrame {
             }
         });
 
+        btnCancelarMensaje.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         btnCancelarMensaje.setText("Cancelar");
         btnCancelarMensaje.setPreferredSize(new java.awt.Dimension(138, 78));
 
         mensajeAEnviar.setColumns(20);
         mensajeAEnviar.setRows(5);
+        mensajeAEnviar.setAutoscrolls(false);
         jScrollPane2.setViewportView(mensajeAEnviar);
 
         javax.swing.GroupLayout right_sidebarLayout = new javax.swing.GroupLayout(right_sidebar);
@@ -290,7 +294,7 @@ public class LandingV2 extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(right_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                             .addComponent(btnCancelarMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(8, 8, 8)))
                 .addContainerGap())
@@ -313,11 +317,14 @@ public class LandingV2 extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        left_sidebar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         left_sidebar.setMaximumSize(null);
         left_sidebar.setPreferredSize(new java.awt.Dimension(240, 518));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jLabel2.setText("Usuarios");
 
+        jComboBox1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Conectados", "No Conectados", "Todos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,7 +356,7 @@ public class LandingV2 extends javax.swing.JFrame {
                             .addGroup(left_sidebarLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 11, Short.MAX_VALUE))
+                                .addGap(0, 21, Short.MAX_VALUE))
                             .addComponent(jSeparator2))))
                 .addContainerGap())
         );
@@ -366,11 +373,12 @@ public class LandingV2 extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         jScroll.setViewportView(left_sidebar);
 
+        btnBuscar.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         btnBuscar.setText("Buscar Amigos");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,6 +386,7 @@ public class LandingV2 extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         jButton1.setText("Ver Solicitudes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,14 +403,14 @@ public class LandingV2 extends javax.swing.JFrame {
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(containerLayout.createSequentialGroup()
-                        .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(containerLayout.createSequentialGroup()
                                 .addComponent(btnBuscar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
+                                .addComponent(jButton1))
+                            .addComponent(jScroll))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(right_sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)))
+                        .addComponent(right_sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         containerLayout.setVerticalGroup(
@@ -416,8 +425,8 @@ public class LandingV2 extends javax.swing.JFrame {
                         .addComponent(jScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscar)
-                            .addComponent(jButton1))))
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(59, 59, 59))
         );
 
@@ -427,7 +436,7 @@ public class LandingV2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -435,7 +444,7 @@ public class LandingV2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
