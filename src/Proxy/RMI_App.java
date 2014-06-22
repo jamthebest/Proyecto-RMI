@@ -68,7 +68,7 @@ public class RMI_App extends javax.swing.JFrame {
         frmimagen.setTitle("Seleccione una imagen");
         frmimagen.setName("frmimagen"); // NOI18N
 
-        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);

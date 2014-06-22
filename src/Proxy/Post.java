@@ -6,12 +6,15 @@
 
 package Proxy;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -43,6 +46,7 @@ public class Post extends javax.swing.JFrame {
             String user = db.getClient(db.getUsername(Integer.parseInt(post.get(0))))[1];
             String comment = post.get(1);
             String imagen = post.get(2);
+            
             System.out.println("User: "+user+"\nComment: "+comment+"\nImagen: "+imagen);
             
             JLabel label = new JLabel();
@@ -53,12 +57,17 @@ public class Post extends javax.swing.JFrame {
             g.drawImage(img, 0, 0, 78, 78, null);
             ImageIcon newIcon = new ImageIcon(bi);
             label.setIcon(newIcon);
+            GlobalImg=imagen;
             x[0] = user;
             x[1] = comment;
-            x[2] = newIcon;
+            x[2] =GlobalImg;
+             modelo.addRow(x);
             i++;
-            modelo.addRow(x);
+           
+           // tablePosts.setValueAt(newIcon, i-1, 2);
         }
+        
+        tablePosts.getColumnModel().getColumn(2).setCellRenderer(new ImageRenderer());
         tablePosts.setModel(modelo);
         tablePosts.repaint();
         setLocationRelativeTo(null);
@@ -85,7 +94,7 @@ public class Post extends javax.swing.JFrame {
         tablePosts = new javax.swing.JTable();
 
         jFileChooser1.setAcceptAllFileFilterUsed(false);
-        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -221,6 +230,23 @@ public class Post extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPostActionPerformed
 
+class ImageRenderer extends DefaultTableCellRenderer {
+  JLabel lbl = new JLabel();
+
+  ImageIcon icon = new ImageIcon(GlobalImg);
+  
+
+  public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    lbl.setText((String) value);
+    lbl.setIcon(icon);
+    return lbl;
+  }
+}
+
+    
+    
+    public String GlobalImg="";
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed
