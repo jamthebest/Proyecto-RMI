@@ -39,7 +39,6 @@ public class Post extends javax.swing.JFrame {
         Object x[];
         x = new Object[3];
         int i = 0;
-        tablePosts.removeRowSelectionInterval(0, 3);
         for(ArrayList<String> post:Posts){
             String user = db.getClient(db.getUsername(Integer.parseInt(post.get(0))))[1];
             String comment = post.get(1);

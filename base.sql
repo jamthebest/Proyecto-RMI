@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS `db_os_users`.`usuarios` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `nombre_completo` VARCHAR(128) NOT NULL,
+  `foto` VARCHAR(1000) NULL,
   `estado` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_user`))
 ENGINE = InnoDB;
@@ -82,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `db_os_users`.`comentarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_user` INT NOT NULL,
   `comentario` TEXT NULL,
-  `imagen` VARBINARY(512) NULL,
+  `imagen` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `comment_user`
     FOREIGN KEY (`id_user`)
