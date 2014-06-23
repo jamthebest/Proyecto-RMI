@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -52,11 +53,19 @@ public class LandingV2 extends javax.swing.JFrame {
         BufferedImage bi = new BufferedImage(78, 78, BufferedImage.TYPE_INT_ARGB);
         Graphics g = bi.createGraphics();
         g.drawImage(img, 0, 0, 78, 78, null);
+        
+        
+        
+        
         ImageIcon newIcon = new ImageIcon(bi);
         if(ic != null){
             //ic.paintIcon(null, null, 78, 78);
-            foto.setIcon(newIcon);
-            foto.setSize(78, 78);
+           // foto.setIcon(newIcon);
+           // foto.setSize(78, 78);
+            Icon icono = new ImageIcon(newIcon.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
+            foto.setIcon(icono);
+            foto.setSize(78,78);
+            this.repaint();
             
             
             
@@ -225,6 +234,7 @@ public class LandingV2 extends javax.swing.JFrame {
 
         foto.setBackground(new java.awt.Color(43, 128, 125));
         foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProxyImages/user.png"))); // NOI18N
+        foto.setToolTipText("");
 
         txtuserid.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
         txtuserid.setForeground(new java.awt.Color(255, 255, 192));
@@ -247,21 +257,26 @@ public class LandingV2 extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(foto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtuserid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtuserid)
-                    .addComponent(foto)))
+                .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(330, 330, 330))
+            .addGroup(headerLayout.createSequentialGroup()
+                .addComponent(txtuserid)
+                .addGap(30, 30, 30)
+                .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         right_sidebar.setPreferredSize(new java.awt.Dimension(544, 520));
@@ -440,8 +455,8 @@ public class LandingV2 extends javax.swing.JFrame {
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(containerLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(containerLayout.createSequentialGroup()
