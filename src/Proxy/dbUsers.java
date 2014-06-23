@@ -220,11 +220,11 @@ public class dbUsers {
                 String res = "";
                 for (int i = 0; i < re.length(); i++) {
                     char x = re.charAt(i);
-                   // if (x != '/') {
+                    if (x != '/') {
                         res += Character.toString(x);
-                   // }else{
-                       // res += "\\";
-                   // }
+                    }else{
+                        res += "\\";
+                    }
                         
                 }
                 System.out.println("res en get foto : " +res);
@@ -339,11 +339,11 @@ public class dbUsers {
         String res = "";
         for (int i = 0; i < imagen.length(); i++) {
             char x = imagen.charAt(i);
-           // if (x != '\\') {
+            if (x != '\\') {
                 res += Character.toString(x);
-           // }else{
-              //  res += "/";
-            //}
+            }else{
+                res += "/";
+            }
         }
         System.out.println("res en post: ");
         imagen = res;
@@ -374,11 +374,11 @@ public class dbUsers {
                 String res = "";
                 for (int i = 0; i < imagen.length(); i++) {
                     char x = imagen.charAt(i);
-                //   if (x != '/') {
-                        res += Character.toString(x);
-                 //  }else{
-                   //    res += "\\";
-                   //}
+                   if (x != '/') {
+                       res += Character.toString(x);
+                   }else{
+                       res += "\\";
+                   }
                 }
                 Post.add(resultSet.getString("id_user"));
                 Post.add(resultSet.getString("comentario"));

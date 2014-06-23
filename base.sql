@@ -181,3 +181,24 @@ CREATE INDEX `solicitud_emisor_idx` ON `db_os_users`.`solicitud` (`id_user2` ASC
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `db_os_users`.`usuarios`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `db_os_users`;
+INSERT INTO `db_os_users`.`usuarios` (`id_user`, `username`, `password`, `nombre_completo`, `foto`, `estado`) VALUES (1, 'user1', '1234', 'Usuario 1', NULL, 0);
+INSERT INTO `db_os_users`.`usuarios` (`id_user`, `username`, `password`, `nombre_completo`, `foto`, `estado`) VALUES (2, 'user2', '1234', 'Usuario 2', NULL, 0);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `db_os_users`.`solicitud`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `db_os_users`;
+INSERT INTO `db_os_users`.`solicitud` (`id`, `id_user1`, `id_user2`, `activo`, `fecha`) VALUES (1, 1, 2, 1, 'now()');
+
+COMMIT;
+
