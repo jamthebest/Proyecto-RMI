@@ -255,9 +255,10 @@ public class dbUsers {
         ArrayList<String> usuarios = new ArrayList();
         try {
             statement = connect.createStatement();
-            String query = "SELECT * FROM `db_os_users`.`usuarios` u inner join solicitud s on "
-                    + "s.id_user2 != u.id_user where s.id_user1 != (select id_user from usuarios "
-                    + "where username = '" + user + "') and s.activo = 1";
+            String query = "SELECT * FROM `db_os_users`.`usuarios` u inner join solicitud s on s.id_user2 != "
+                    + "(select id_user from usuarios where username = '"+user+"') and s.id_user1 != (select id_user "
+                    + "from usuarios where username = '"+user+"') where u.id_user != (select id_user from usuarios "
+                    + "where username = '"+user+"')";
             resultSet = statement.executeQuery(query);
             
             while(resultSet.next()){
@@ -322,9 +323,10 @@ public class dbUsers {
         int i=0;
         try {
             statement = connect.createStatement();
-            resultSet = statement.executeQuery("SELECT username FROM usuarios u inner join amigos a on "
-                    + "a.id_user2 = u.id_user or a.id_user = u.id_user where u.id_user != ("
-                    + "select id_user from usuarios where username = '" + u + "') and u.estado = 1");
+            resultSet = statement.executeQuery("SELECT username FROM usuarios u inner join amigos a on a.id_user2 = "
+                    + "u.id_user or a.id_user = u.id_user where u.id_user != (select id_user from usuarios where "
+                    + "username = '"+u+"') and u.estado = 1 and (a.id_user = (select id_user from usuarios where "
+                    + "username = '"+u+"') or a.id_user2 = (select id_user from usuarios where username = '"+u+"'))");
             while(resultSet.next()){
                 Friends.add(resultSet.getString("username"));
             }
