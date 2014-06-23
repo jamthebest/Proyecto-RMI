@@ -187,8 +187,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `db_os_users`;
-INSERT INTO `db_os_users`.`usuarios` (`id_user`, `username`, `password`, `nombre_completo`, `foto`, `estado`) VALUES (1, 'user1', '1234', 'Usuario 1', NULL, 0);
-INSERT INTO `db_os_users`.`usuarios` (`id_user`, `username`, `password`, `nombre_completo`, `foto`, `estado`) VALUES (2, 'user2', '1234', 'Usuario 2', NULL, 0);
+INSERT INTO `db_os_users`.`usuarios` (`id_user`, `username`, `password`, `nombre_completo`, `foto`, `estado`) VALUES (1, 'user1', '1234', 'Usuario 1', '', 0);
+INSERT INTO `db_os_users`.`usuarios` (`id_user`, `username`, `password`, `nombre_completo`, `foto`, `estado`) VALUES (2, 'user2', '1234', 'Usuario 2', '', 0);
 
 COMMIT;
 

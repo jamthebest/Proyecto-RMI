@@ -46,30 +46,24 @@ public class LandingV2 extends javax.swing.JFrame {
         this.client = client;
         db = new dbUsers();
         db.connectDataBase();
-        right_sidebar.setVisible(false);        
-        ImageIcon ic = new ImageIcon(db.getFoto(client.getUser()));
+        right_sidebar.setVisible(false);
+        ImageIcon ic;
+        if (db.getFoto(client.getUser()).equals("")) {
+            ic = new ImageIcon(getClass().getResource("/ProxyImages/user.png"));
+        }else{
+            ic = new ImageIcon(db.getFoto(client.getUser()));
+        }
         //lineas agregadas
         Image img = ic.getImage();
         BufferedImage bi = new BufferedImage(78, 78, BufferedImage.TYPE_INT_ARGB);
         Graphics g = bi.createGraphics();
         g.drawImage(img, 0, 0, 78, 78, null);
         
-        
-        
-        
         ImageIcon newIcon = new ImageIcon(bi);
-        if(ic != null){
-            //ic.paintIcon(null, null, 78, 78);
-           // foto.setIcon(newIcon);
-           // foto.setSize(78, 78);
-            Icon icono = new ImageIcon(newIcon.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
-            foto.setIcon(icono);
-            foto.setSize(78,78);
-            this.repaint();
-            
-            
-            
-        }
+        Icon icono = new ImageIcon(newIcon.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
+        foto.setIcon(icono);
+        foto.setSize(78,78);
+        this.repaint();
          
         this.setVisible(true);
         Color containerColor = new Color(111,168,162);
@@ -351,7 +345,7 @@ public class LandingV2 extends javax.swing.JFrame {
 
         jComboBox1.setBackground(new java.awt.Color(43, 128, 125));
         jComboBox1.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 192));
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 102));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Conectados", "No Conectados", "Todos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

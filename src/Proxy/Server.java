@@ -48,7 +48,7 @@ public class Server extends UnicastRemoteObject implements IServer {
                     String resp;
                     Scanner s = new Scanner(System.in);
                     do {
-                        System.out.print("What? (u/l/e) ");
+                        System.out.print("Que desea Hacer?\nu: Ver Usuarios Conectados\nl: Ver el log del Sistema\ne: Salir\n");
                         resp = s.nextLine();
                     } while (resp.length() == 0);
                     switch (resp.toLowerCase().charAt(0)) {

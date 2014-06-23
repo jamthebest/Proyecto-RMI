@@ -6,6 +6,7 @@ package Proxy;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.io.File;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -69,7 +70,7 @@ public class RMI_App extends javax.swing.JFrame {
         frmimagen.setTitle("Seleccione una imagen");
         frmimagen.setName("frmimagen"); // NOI18N
 
-        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -97,13 +98,13 @@ public class RMI_App extends javax.swing.JFrame {
         loginPanel.setToolTipText("");
         loginPanel.setMaximumSize(new java.awt.Dimension(700, 700));
 
-        jLabel3.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel3.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
         jLabel3.setText("Usuario: ");
         jLabel3.setPreferredSize(new java.awt.Dimension(70, 25));
 
-        jLabel4.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel4.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 0, 0));
         jLabel4.setText("Contraseña: ");
         jLabel4.setPreferredSize(new java.awt.Dimension(80, 40));
 
@@ -125,8 +126,8 @@ public class RMI_App extends javax.swing.JFrame {
 
         txtPassword.setNextFocusableComponent(btnIniciarSesion);
 
-        jLabel5.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel5.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 0, 0));
         jLabel5.setText("Usuario: ");
         jLabel5.setPreferredSize(new java.awt.Dimension(70, 25));
 
@@ -134,8 +135,8 @@ public class RMI_App extends javax.swing.JFrame {
 
         txtPasswordSignup.setNextFocusableComponent(btnRegistrarse);
 
-        jLabel6.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel6.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 0, 0));
         jLabel6.setText("Contraseña: ");
         jLabel6.setPreferredSize(new java.awt.Dimension(80, 40));
 
@@ -153,23 +154,23 @@ public class RMI_App extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel7.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 0, 0));
         jLabel7.setText("Nombre: ");
         jLabel7.setPreferredSize(new java.awt.Dimension(70, 25));
 
         txtNombre.setNextFocusableComponent(txtUserSignup);
 
-        jLabel1.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel1.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 0));
         jLabel1.setText("Iniciar Sesión");
 
         jLabel2.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel2.setForeground(new java.awt.Color(51, 0, 0));
         jLabel2.setText("No Tienes Cuenta Con Nosotros? Registrarse Gratis Aquí");
 
-        jLabel8.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel8.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 0, 0));
         jLabel8.setText("Imagen");
 
         btnImagen.setBackground(new java.awt.Color(43, 128, 125));
@@ -329,11 +330,14 @@ public class RMI_App extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        try {            
+        try {
             Registry Reg = LocateRegistry.getRegistry("localhost", 1993);
             IServer Server = (IServer) Reg.lookup("Chat");  
-            
-            if(Server.insertClient(txtUserSignup.getText(),txtPasswordSignup.getText(),txtNombre.getText(),jFileChooser1.getSelectedFile().getPath()) == -1){
+            String imagen = "";
+            if (!this.btnImagen.getText().equals("Seleccionar Imagen ...")) {
+                imagen = jFileChooser1.getSelectedFile().getPath();
+            }
+            if(Server.insertClient(txtUserSignup.getText(),txtPasswordSignup.getText(),txtNombre.getText(),imagen) == -1){
                 Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "Error al registrarse.", "Error", 0);
             } else {

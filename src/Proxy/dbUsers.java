@@ -227,7 +227,7 @@ public class dbUsers {
                     }
                         
                 }
-                System.out.println("res en get foto : " +res);
+                //System.out.println("res en get foto : " +res);
                 return res;
             }
         } catch (SQLException ex) {

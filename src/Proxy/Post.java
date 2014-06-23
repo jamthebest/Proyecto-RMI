@@ -100,7 +100,7 @@ public class Post extends javax.swing.JFrame {
         btnLike = new javax.swing.JButton();
 
         jFileChooser1.setAcceptAllFileFilterUsed(false);
-        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -167,8 +167,8 @@ public class Post extends javax.swing.JFrame {
             }
         });
 
-        tablePosts.setFont(new java.awt.Font("Futura", 0, 12)); // NOI18N
-        tablePosts.setForeground(new java.awt.Color(255, 255, 192));
+        tablePosts.setFont(new java.awt.Font("Futura", 1, 12)); // NOI18N
+        tablePosts.setForeground(new java.awt.Color(0, 51, 0));
         tablePosts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
