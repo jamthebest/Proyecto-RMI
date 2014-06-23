@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author JairoDavid
+ * @author usuario
  */
 public interface IClient extends Remote {
     public void setUser(String User) throws RemoteException;

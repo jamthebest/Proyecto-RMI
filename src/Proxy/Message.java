@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author JairoDavid
+ * @author usuario
  */
 public class Message implements Serializable {
     

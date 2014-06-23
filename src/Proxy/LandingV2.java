@@ -24,7 +24,7 @@ import javax.swing.text.html.HTMLEditorKit;
 
 /**
  *
- * @author rpenav
+ * @author usuario
  */
 public class LandingV2 extends javax.swing.JFrame {
 

@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author JairoDavid
+ * @author usuario
  */
 public class runClient {
      

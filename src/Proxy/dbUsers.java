@@ -11,7 +11,7 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Martha Hidalgo
+ * @author usuario
  */
 public class dbUsers {
     private Connection connect = null;

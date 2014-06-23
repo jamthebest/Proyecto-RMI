@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author JairoDavid
+ * @author usuario
  */
 public interface IServer extends Remote {
     //void sendMessage(int id, String name) throws RemoteException;

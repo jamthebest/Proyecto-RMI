@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author JairoDavid
+ * @author usuario
  */
 public class Server extends UnicastRemoteObject implements IServer {
 

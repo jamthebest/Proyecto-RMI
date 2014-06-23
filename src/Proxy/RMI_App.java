@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author rpenav
+ * @author usuario
  */
 public class RMI_App extends javax.swing.JFrame {
 

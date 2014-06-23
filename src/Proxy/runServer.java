@@ -12,7 +12,7 @@ import java.rmi.registry.Registry;
 
 /**
  *
- * @author JairoDavid
+ * @author usuario
  */
 public class runServer {
     
