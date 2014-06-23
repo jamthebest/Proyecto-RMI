@@ -225,7 +225,9 @@ public class dbUsers {
                    // }else{
                        // res += "\\";
                    // }
+                        
                 }
+                System.out.println("res en get foto : " +res);
                 return res;
             }
         } catch (SQLException ex) {
@@ -337,12 +339,13 @@ public class dbUsers {
         String res = "";
         for (int i = 0; i < imagen.length(); i++) {
             char x = imagen.charAt(i);
-            if (x != '\\') {
+           // if (x != '\\') {
                 res += Character.toString(x);
-            }else{
-                res += "/";
-            }
+           // }else{
+              //  res += "/";
+            //}
         }
+        System.out.println("res en post: ");
         imagen = res;
         
         try {
@@ -371,11 +374,11 @@ public class dbUsers {
                 String res = "";
                 for (int i = 0; i < imagen.length(); i++) {
                     char x = imagen.charAt(i);
-                   if (x != '/') {
+                //   if (x != '/') {
                         res += Character.toString(x);
-                   }else{
-                       res += "\\";
-                   }
+                 //  }else{
+                   //    res += "\\";
+                   //}
                 }
                 Post.add(resultSet.getString("id_user"));
                 Post.add(resultSet.getString("comentario"));

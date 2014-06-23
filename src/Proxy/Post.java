@@ -93,7 +93,7 @@ public class Post extends javax.swing.JFrame {
         btnLike = new javax.swing.JButton();
 
         jFileChooser1.setAcceptAllFileFilterUsed(false);
-        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -119,6 +119,9 @@ public class Post extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnImagen.setBackground(new java.awt.Color(70, 162, 126));
+        btnImagen.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnImagen.setForeground(new java.awt.Color(255, 255, 255));
         btnImagen.setText("Subir Imagen");
         btnImagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +129,15 @@ public class Post extends javax.swing.JFrame {
             }
         });
 
+        btnPost.setBackground(new java.awt.Color(70, 162, 126));
+        btnPost.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnPost.setForeground(new java.awt.Color(255, 255, 255));
         btnPost.setText("Publicar Post");
+        btnPost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPostMouseClicked(evt);
+            }
+        });
         btnPost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPostActionPerformed(evt);
@@ -137,6 +148,7 @@ public class Post extends javax.swing.JFrame {
         txtPost.setRows(5);
         jScrollPane1.setViewportView(txtPost);
 
+        btnSalir.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +192,9 @@ public class Post extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablePosts);
 
+        btnLike.setBackground(new java.awt.Color(70, 162, 126));
+        btnLike.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnLike.setForeground(new java.awt.Color(255, 255, 255));
         btnLike.setText("Me Gusta");
         btnLike.setEnabled(false);
         btnLike.addActionListener(new java.awt.event.ActionListener() {
@@ -211,21 +226,20 @@ public class Post extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImagen)
-                    .addComponent(btnPost))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btnPost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir)
-                    .addComponent(btnLike))
-                .addGap(107, 107, 107))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLike, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -246,7 +260,8 @@ public class Post extends javax.swing.JFrame {
         String imagen = "";
         if (!btnImagen.getText().equals("Subir Imagen")) {
             imagen = jFileChooser1.getSelectedFile().getPath();
-        }else if(!txtPost.getText().isEmpty()){
+        }
+        if(!txtPost.getText().isEmpty()){
             if (db.Post(client.getID(), txtPost.getText(), imagen) != -1) {
                 txtPost.setText("");
                 btnImagen.setText("Subir Imagen");
@@ -301,6 +316,10 @@ class ImageRenderer extends DefaultTableCellRenderer {
     private void tablePostsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablePostsKeyPressed
         getLike();
     }//GEN-LAST:event_tablePostsKeyPressed
+
+    private void btnPostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPostMouseClicked
+    
+    }//GEN-LAST:event_btnPostMouseClicked
 
     private void getLike(){
         int row = tablePosts.getSelectedRow();
