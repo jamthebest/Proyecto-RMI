@@ -192,7 +192,8 @@ public class dbUsers {
                       "SELECT * FROM db_os_users.mensajes "
                     + "WHERE (id_user1 = '"+client+"' "
                     + "AND id_user2 = '"+friend+"') "
-                    + "OR (id_user1 = '"+friend+"' AND id_user2 = '"+client+"')";
+                    + "OR (id_user1 = '"+friend+"' AND id_user2 = '"+client+"')"
+                    + "ORDER BY hora ASC";
             resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                 int user1 = resultSet.getInt("id_user1");
@@ -364,11 +365,21 @@ public class dbUsers {
             resultSet = statement.executeQuery("SELECT * from comentarios where id_user = (select id_user from "
                     + "usuarios where username = '"+usuario+"') or id_user in (SELECT u.id_user FROM usuarios u inner join "
                     + "amigos a on a.id_user2 = u.id_user or a.id_user = u.id_user where u.id_user != (select id_user "
-                    + "from usuarios where username = '"+usuario+"'))");
+                    + "from usuarios where username = '"+usuario+"')) ORDER BY id DESC");
             while(resultSet.next()){
+                String imagen = resultSet.getString("imagen");
+                String res = "";
+                for (int i = 0; i < imagen.length(); i++) {
+                    char x = imagen.charAt(i);
+                   if (x != '/') {
+                        res += Character.toString(x);
+                   }else{
+                       res += "\\";
+                   }
+                }
                 Post.add(resultSet.getString("id_user"));
                 Post.add(resultSet.getString("comentario"));
-                Post.add(resultSet.getString("imagen"));
+                Post.add(res);
                 Posts.add(Post);
                 Post = new ArrayList<>();
             }
@@ -377,5 +388,45 @@ public class dbUsers {
             System.out.println("Error extrayendo la informacion del usuario: "+usuario);
         }
         return Posts;
+    }
+    
+    public int likeComment(int user, String comment, String imagen){
+        try {
+            statement = connect.createStatement();
+            String query = "SELECT id FROM `db_os_users`.`comentarios` where id_user = '"+user+"'"
+                    + "and comentario = '"+comment+"'";
+            resultSet = statement.executeQuery(query);
+            int comentario = 0;
+            while(resultSet.next()){
+                comentario = resultSet.getInt("id");
+            }
+            if (comentario != 0 && comentario != -1) {
+                preparedStatement = connect.prepareStatement("INSERT INTO `db_os_users`.`likes_comments` "
+                    + "( `user`,`comment`) "+"VALUES ( '"+user+"','"+comentario+"')");
+                int enviar;
+                enviar = preparedStatement.executeUpdate();
+                return enviar;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al almacenar LIKE!\n" + ex.getMessage());
+        }
+        JOptionPane.showMessageDialog(null, "Error al almacenar LIKE!\n");
+        return -1;
+    }
+    
+    public int getLikeComment(int user,int user2, String comment){
+        try {
+            statement = connect.createStatement();
+            String query = "SELECT id FROM `db_os_users`.`likes_comments` where user = '" +user2+"' and "
+                    + "comment = (SELECT id FROM `db_os_users`.`comentarios` where id_user = '"+user+"'"
+                    + "and comentario = '"+comment+"')";
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                return resultSet.getInt("id");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener Informacion del Post!\n" + ex.getMessage());
+        }
+        return -1;
     }
 }

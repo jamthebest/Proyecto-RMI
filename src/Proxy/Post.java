@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -36,41 +37,46 @@ public class Post extends javax.swing.JFrame {
         client = cliente;
         db = new dbUsers();
         db.connectDataBase();
-        Posts = db.getPosts(client.getUser());
+        getPosts();
+        setLocationRelativeTo(null);
+    }
+    
+    private void getPosts(){
         DefaultTableModel modelo = (DefaultTableModel) tablePosts.getModel();
-        int size = Posts.size();
+        int filas = tablePosts.getModel().getRowCount();
+        for (int i = 0; i < filas; i++) {
+            modelo.removeRow(0);
+        }
+        Posts = db.getPosts(client.getUser());
+        //DefaultTableModel modelo = (DefaultTableModel) tablePosts.getModel();
         Object x[];
         x = new Object[3];
-        int i = 0;
         for(ArrayList<String> post:Posts){
             String user = db.getClient(db.getUsername(Integer.parseInt(post.get(0))))[1];
             String comment = post.get(1);
             String imagen = post.get(2);
             
-            System.out.println("User: "+user+"\nComment: "+comment+"\nImagen: "+imagen);
+            //System.out.println("User: "+user+"\nComment: "+comment+"\nImagen: "+imagen);
             
-            JLabel label = new JLabel();
             ImageIcon ic = new ImageIcon(imagen);
             Image img = ic.getImage();
             BufferedImage bi = new BufferedImage(78, 78, BufferedImage.TYPE_INT_ARGB);
             Graphics g = bi.createGraphics();
             g.drawImage(img, 0, 0, 78, 78, null);
             ImageIcon newIcon = new ImageIcon(bi);
-            label.setIcon(newIcon);
-            GlobalImg=imagen;
+            GlobalImg = imagen;
+            
             x[0] = user;
             x[1] = comment;
-            x[2] =GlobalImg;
-             modelo.addRow(x);
-            i++;
-           
+            x[2] = GlobalImg;
+            modelo.addRow(x);
+            
            // tablePosts.setValueAt(newIcon, i-1, 2);
         }
         
         tablePosts.getColumnModel().getColumn(2).setCellRenderer(new ImageRenderer());
         tablePosts.setModel(modelo);
         tablePosts.repaint();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -92,9 +98,10 @@ public class Post extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePosts = new javax.swing.JTable();
+        btnLike = new javax.swing.JButton();
 
         jFileChooser1.setAcceptAllFileFilterUsed(false);
-        jFileChooser1.setCurrentDirectory(new java.io.File("/C:/Users/JAM$/Pictures"));
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\JAM$\\Pictures"));
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -168,7 +175,26 @@ public class Post extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablePosts.setRowHeight(78);
+        tablePosts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePostsMouseClicked(evt);
+            }
+        });
+        tablePosts.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablePostsKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablePosts);
+
+        btnLike.setText("Me Gusta");
+        btnLike.setEnabled(false);
+        btnLike.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLikeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,12 +206,14 @@ public class Post extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnImagen)
-                        .addGap(207, 207, 207)
-                        .addComponent(btnSalir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPost))
                     .addComponent(jSeparator1)
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnLike)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -194,15 +222,18 @@ public class Post extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnImagen)
-                    .addComponent(btnPost)
-                    .addComponent(btnSalir))
+                    .addComponent(btnPost))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalir)
+                    .addComponent(btnLike))
+                .addGap(107, 107, 107))
         );
 
         pack();
@@ -223,10 +254,14 @@ public class Post extends javax.swing.JFrame {
         String imagen = "";
         if (!btnImagen.getText().equals("Subir Imagen")) {
             imagen = jFileChooser1.getSelectedFile().getPath();
-        }
-        if (db.Post(client.getID(), txtPost.getText(), imagen) != -1) {
-            txtPost.setText("");
-            btnImagen.setText("Subir Imagen");
+        }else if(!txtPost.getText().isEmpty()){
+            if (db.Post(client.getID(), txtPost.getText(), imagen) != -1) {
+                txtPost.setText("");
+                btnImagen.setText("Subir Imagen");
+                getPosts();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No se pudo realizar el Post!\n");
         }
     }//GEN-LAST:event_btnPostActionPerformed
 
@@ -235,7 +270,7 @@ class ImageRenderer extends DefaultTableCellRenderer {
 
   ImageIcon icon = new ImageIcon(GlobalImg);
   
-
+  @Override
   public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
       boolean hasFocus, int row, int column) {
     lbl.setText((String) value);
@@ -251,9 +286,40 @@ class ImageRenderer extends DefaultTableCellRenderer {
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnLikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLikeActionPerformed
+        int row = tablePosts.getSelectedRow();
+        String comment = tablePosts.getValueAt(row, 1).toString();
+        int usuario = db.getClientid(tablePosts.getValueAt(row, 0).toString());
+        String imagen = tablePosts.getValueAt(row, 2).toString();
+        
+        if (db.likeComment(usuario, comment, imagen) != -1) {
+            btnLike.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnLikeActionPerformed
+
+    private void tablePostsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePostsMouseClicked
+        getLike();
+    }//GEN-LAST:event_tablePostsMouseClicked
+
+    private void tablePostsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablePostsKeyPressed
+        getLike();
+    }//GEN-LAST:event_tablePostsKeyPressed
+
+    private void getLike(){
+        int row = tablePosts.getSelectedRow();
+        String comment = tablePosts.getValueAt(row, 1).toString();
+        int usuario = db.getClientid(tablePosts.getValueAt(row, 0).toString());
+        
+        if (db.getLikeComment(usuario, client.getID(), comment) > 0) {
+            btnLike.setEnabled(false);
+        }else{
+            btnLike.setEnabled(true);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImagen;
+    private javax.swing.JButton btnLike;
     private javax.swing.JButton btnPost;
     private javax.swing.JButton btnSalir;
     private javax.swing.JFrame frmImagen;
