@@ -6,6 +6,7 @@
 
 package Proxy;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -34,11 +35,17 @@ public class Post extends javax.swing.JFrame {
     
     public Post(Client cliente) {
         initComponents();
+        
         client = cliente;
         db = new dbUsers();
         db.connectDataBase();
         getPosts();
         setLocationRelativeTo(null);
+        Color containerColor = new Color(111,168,162);
+        Color headerColor = new Color(111,168,162);
+        Color content = new Color(111,168,162);
+        getContentPane().setBackground(content);
+        
     }
     
     private void getPosts(){
@@ -118,10 +125,11 @@ public class Post extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(111, 168, 162));
 
-        btnImagen.setBackground(new java.awt.Color(70, 162, 126));
-        btnImagen.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnImagen.setForeground(new java.awt.Color(255, 255, 255));
+        btnImagen.setBackground(new java.awt.Color(43, 128, 125));
+        btnImagen.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnImagen.setForeground(new java.awt.Color(255, 255, 192));
         btnImagen.setText("Subir Imagen");
         btnImagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,9 +137,9 @@ public class Post extends javax.swing.JFrame {
             }
         });
 
-        btnPost.setBackground(new java.awt.Color(70, 162, 126));
-        btnPost.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnPost.setForeground(new java.awt.Color(255, 255, 255));
+        btnPost.setBackground(new java.awt.Color(43, 128, 125));
+        btnPost.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnPost.setForeground(new java.awt.Color(255, 255, 192));
         btnPost.setText("Publicar Post");
         btnPost.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -145,10 +153,13 @@ public class Post extends javax.swing.JFrame {
         });
 
         txtPost.setColumns(20);
+        txtPost.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
         txtPost.setRows(5);
         jScrollPane1.setViewportView(txtPost);
 
-        btnSalir.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnSalir.setBackground(new java.awt.Color(43, 128, 125));
+        btnSalir.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 192));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +167,8 @@ public class Post extends javax.swing.JFrame {
             }
         });
 
+        tablePosts.setFont(new java.awt.Font("Futura", 0, 12)); // NOI18N
+        tablePosts.setForeground(new java.awt.Color(255, 255, 192));
         tablePosts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -192,9 +205,9 @@ public class Post extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablePosts);
 
-        btnLike.setBackground(new java.awt.Color(70, 162, 126));
-        btnLike.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnLike.setForeground(new java.awt.Color(255, 255, 255));
+        btnLike.setBackground(new java.awt.Color(43, 128, 125));
+        btnLike.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnLike.setForeground(new java.awt.Color(255, 255, 192));
         btnLike.setText("Me Gusta");
         btnLike.setEnabled(false);
         btnLike.addActionListener(new java.awt.event.ActionListener() {

@@ -23,11 +23,12 @@ public class RMI_App extends javax.swing.JFrame {
      */
     public RMI_App() {
         initComponents();
+        
         this.txtUser.requestFocus();
-        Color containerColor = new Color(241,241,234);
-        Color headerColor = new Color(223,223,216);
-        Color content = new Color(244,244,238);
-        getContentPane().setBackground(containerColor);
+        Color containerColor = new Color(111,168,162);
+        Color headerColor = new Color(111,168,162);
+        Color content = new Color(111,168,162);
+        getContentPane().setBackground(content);
         container.setBackground(containerColor);
         loginPanel.setBackground(content);
         setSize(412, 534);
@@ -87,23 +88,28 @@ public class RMI_App extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(111, 168, 162));
         setMaximumSize(new java.awt.Dimension(424, 512));
         setResizable(false);
 
-        loginPanel.setForeground(new java.awt.Color(255, 255, 255));
+        loginPanel.setBackground(new java.awt.Color(111, 168, 162));
+        loginPanel.setForeground(new java.awt.Color(111, 168, 162));
+        loginPanel.setToolTipText("");
         loginPanel.setMaximumSize(new java.awt.Dimension(700, 700));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 192));
         jLabel3.setText("Usuario: ");
         jLabel3.setPreferredSize(new java.awt.Dimension(70, 25));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 192));
         jLabel4.setText("Contraseña: ");
         jLabel4.setPreferredSize(new java.awt.Dimension(80, 40));
 
-        btnIniciarSesion.setBackground(new java.awt.Color(70, 162, 126));
-        btnIniciarSesion.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setBackground(new java.awt.Color(43, 128, 125));
+        btnIniciarSesion.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 192));
         btnIniciarSesion.setText("Iniciar Sesión");
         btnIniciarSesion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(70, 162, 126)));
         btnIniciarSesion.setBorderPainted(false);
@@ -119,7 +125,8 @@ public class RMI_App extends javax.swing.JFrame {
 
         txtPassword.setNextFocusableComponent(btnIniciarSesion);
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 192));
         jLabel5.setText("Usuario: ");
         jLabel5.setPreferredSize(new java.awt.Dimension(70, 25));
 
@@ -127,13 +134,14 @@ public class RMI_App extends javax.swing.JFrame {
 
         txtPasswordSignup.setNextFocusableComponent(btnRegistrarse);
 
-        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 192));
         jLabel6.setText("Contraseña: ");
         jLabel6.setPreferredSize(new java.awt.Dimension(80, 40));
 
-        btnRegistrarse.setBackground(new java.awt.Color(70, 162, 126));
-        btnRegistrarse.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setBackground(new java.awt.Color(43, 128, 125));
+        btnRegistrarse.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 192));
         btnRegistrarse.setText("Registrarse");
         btnRegistrarse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 162, 126), 0));
         btnRegistrarse.setBorderPainted(false);
@@ -145,21 +153,28 @@ public class RMI_App extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 192));
         jLabel7.setText("Nombre: ");
         jLabel7.setPreferredSize(new java.awt.Dimension(70, 25));
 
         txtNombre.setNextFocusableComponent(txtUserSignup);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 192));
         jLabel1.setText("Iniciar Sesión");
 
-        jLabel2.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
-        jLabel2.setText("Registrarse Gratis Aquí");
+        jLabel2.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 192));
+        jLabel2.setText("No Tienes Cuenta Con Nosotros? Registrarse Gratis Aquí");
 
-        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 192));
         jLabel8.setText("Imagen");
 
+        btnImagen.setBackground(new java.awt.Color(43, 128, 125));
+        btnImagen.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        btnImagen.setForeground(new java.awt.Color(255, 255, 192));
         btnImagen.setText("Seleccionar Imagen ...");
         btnImagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,41 +188,42 @@ public class RMI_App extends javax.swing.JFrame {
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel2))
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel1))
-                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUserSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPasswordSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnImagen))))
-                .addGap(33, 33, 33))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addComponent(jLabel1))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUserSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPasswordSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(loginPanelLayout.createSequentialGroup()
+                                        .addGap(11, 11, 11)
+                                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnImagen))))
+                        .addGap(0, 47, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,9 +237,9 @@ public class RMI_App extends javax.swing.JFrame {
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -243,7 +259,7 @@ public class RMI_App extends javax.swing.JFrame {
                     .addComponent(btnImagen))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);

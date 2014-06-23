@@ -6,6 +6,7 @@
 
 package Proxy;
 
+import java.awt.Color;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class Solicitudes extends javax.swing.JFrame {
         db.connectDataBase();
         client = cliente;
         user = "";
+        Color content = new Color(111,168,162);
+        getContentPane().setBackground(content);
         ArrayList<String> usuarios = db.obtenerSolicitudes(client.getUser());
         this.setVisible(true);
         final javax.swing.DefaultListModel model = new javax.swing.DefaultListModel();
@@ -95,9 +98,9 @@ public class Solicitudes extends javax.swing.JFrame {
 
         jScroll.setViewportView(left_sidebar);
 
-        jButton1.setBackground(new java.awt.Color(70, 162, 126));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(43, 128, 125));
+        jButton1.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 192));
         jButton1.setText("Aceptar Solicitud");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,9 +108,9 @@ public class Solicitudes extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setBackground(new java.awt.Color(70, 162, 126));
-        btnCancel.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setBackground(new java.awt.Color(43, 128, 125));
+        btnCancel.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 192));
         btnCancel.setText("Cancelar");
         btnCancel.setPreferredSize(new java.awt.Dimension(53, 19));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {

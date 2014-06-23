@@ -6,6 +6,7 @@
 
 package Proxy;
 
+import java.awt.Color;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class EnviarSolicitud extends javax.swing.JFrame {
     
     public EnviarSolicitud(Client cliente) throws RemoteException, NotBoundException {
         initComponents();
+        Color content = new Color(111,168,162);
+        getContentPane().setBackground(content);
         setLocationRelativeTo(null);
         db = new dbUsers();
         db.connectDataBase();
@@ -65,9 +68,9 @@ public class EnviarSolicitud extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Enviar Solicitud");
 
-        jButton1.setBackground(new java.awt.Color(70, 162, 126));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(43, 128, 125));
+        jButton1.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 192));
         jButton1.setText("Enviar Solicitud");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,9 +107,9 @@ public class EnviarSolicitud extends javax.swing.JFrame {
 
         jScroll.setViewportView(left_sidebar);
 
-        btnCancel.setBackground(new java.awt.Color(70, 162, 126));
-        btnCancel.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setBackground(new java.awt.Color(43, 128, 125));
+        btnCancel.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 192));
         btnCancel.setText("Cancelar");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

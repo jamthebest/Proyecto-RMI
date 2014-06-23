@@ -57,12 +57,15 @@ public class LandingV2 extends javax.swing.JFrame {
             //ic.paintIcon(null, null, 78, 78);
             foto.setIcon(newIcon);
             foto.setSize(78, 78);
+            
+            
+            
         }
          
         this.setVisible(true);
-        Color containerColor = new Color(250,250,250);
-        Color headerColor = new Color(223,223,216);
-        Color content = new Color(244,244,238);
+        Color containerColor = new Color(111,168,162);
+        Color headerColor = new Color(111,168,162);
+        Color content = new Color(111,168,162);
         getContentPane().setBackground(content);
         container.setBackground(containerColor);
         header.setBackground(headerColor);        
@@ -220,14 +223,16 @@ public class LandingV2 extends javax.swing.JFrame {
 
         container.setPreferredSize(new java.awt.Dimension(824, 650));
 
+        foto.setBackground(new java.awt.Color(43, 128, 125));
         foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ProxyImages/user.png"))); // NOI18N
 
-        txtuserid.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        txtuserid.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        txtuserid.setForeground(new java.awt.Color(255, 255, 192));
         txtuserid.setText("Mi Usuario es: ");
 
-        cerrarSesion.setBackground(new java.awt.Color(70, 162, 126));
-        cerrarSesion.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        cerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        cerrarSesion.setBackground(new java.awt.Color(43, 128, 125));
+        cerrarSesion.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        cerrarSesion.setForeground(new java.awt.Color(255, 255, 192));
         cerrarSesion.setText("Salir");
         cerrarSesion.setPreferredSize(new java.awt.Dimension(78, 78));
         cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -262,9 +267,12 @@ public class LandingV2 extends javax.swing.JFrame {
         right_sidebar.setPreferredSize(new java.awt.Dimension(544, 520));
 
         textPanel.setEditable(false);
+        textPanel.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
         messagePanel.setViewportView(textPanel);
 
-        btnEnviarMensaje.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnEnviarMensaje.setBackground(new java.awt.Color(43, 128, 125));
+        btnEnviarMensaje.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnEnviarMensaje.setForeground(new java.awt.Color(255, 255, 192));
         btnEnviarMensaje.setText("Enviar");
         btnEnviarMensaje.setPreferredSize(new java.awt.Dimension(138, 78));
         btnEnviarMensaje.addActionListener(new java.awt.event.ActionListener() {
@@ -273,11 +281,14 @@ public class LandingV2 extends javax.swing.JFrame {
             }
         });
 
-        btnCancelarMensaje.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        btnCancelarMensaje.setBackground(new java.awt.Color(43, 128, 125));
+        btnCancelarMensaje.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnCancelarMensaje.setForeground(new java.awt.Color(255, 255, 192));
         btnCancelarMensaje.setText("Cancelar");
         btnCancelarMensaje.setPreferredSize(new java.awt.Dimension(138, 78));
 
         mensajeAEnviar.setColumns(20);
+        mensajeAEnviar.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
         mensajeAEnviar.setRows(5);
         mensajeAEnviar.setAutoscrolls(false);
         jScrollPane2.setViewportView(mensajeAEnviar);
@@ -294,7 +305,7 @@ public class LandingV2 extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(right_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                             .addComponent(btnCancelarMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(8, 8, 8)))
                 .addContainerGap())
@@ -314,14 +325,18 @@ public class LandingV2 extends javax.swing.JFrame {
                 .addGap(118, 118, 118))
         );
 
+        left_sidebar.setBackground(new java.awt.Color(111, 168, 162));
         left_sidebar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         left_sidebar.setMaximumSize(null);
         left_sidebar.setPreferredSize(new java.awt.Dimension(240, 518));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Futura", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 192));
         jLabel2.setText("Usuarios");
 
-        jComboBox1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        jComboBox1.setBackground(new java.awt.Color(43, 128, 125));
+        jComboBox1.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 192));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Conectados", "No Conectados", "Todos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,6 +344,7 @@ public class LandingV2 extends javax.swing.JFrame {
             }
         });
 
+        lista.setFont(new java.awt.Font("Futura", 0, 12)); // NOI18N
         jScrollPane1.setViewportView(lista);
 
         javax.swing.GroupLayout left_sidebarLayout = new javax.swing.GroupLayout(left_sidebar);
@@ -350,7 +366,7 @@ public class LandingV2 extends javax.swing.JFrame {
                             .addGroup(left_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         left_sidebarLayout.setVerticalGroup(
             left_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,14 +381,14 @@ public class LandingV2 extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jScroll.setViewportView(left_sidebar);
 
-        btnBuscar.setBackground(new java.awt.Color(70, 162, 126));
-        btnBuscar.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setBackground(new java.awt.Color(43, 128, 125));
+        btnBuscar.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 192));
         btnBuscar.setText("Buscar Amigos");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,9 +396,9 @@ public class LandingV2 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(70, 162, 126));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(43, 128, 125));
+        jButton1.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 192));
         jButton1.setText("Ver Solicitudes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,9 +406,9 @@ public class LandingV2 extends javax.swing.JFrame {
             }
         });
 
-        btnpost.setBackground(new java.awt.Color(70, 162, 126));
-        btnpost.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        btnpost.setForeground(new java.awt.Color(255, 255, 255));
+        btnpost.setBackground(new java.awt.Color(43, 128, 125));
+        btnpost.setFont(new java.awt.Font("Futura", 1, 13)); // NOI18N
+        btnpost.setForeground(new java.awt.Color(255, 255, 192));
         btnpost.setText("POSTS");
         btnpost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,8 +433,8 @@ public class LandingV2 extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(right_sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(right_sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         containerLayout.setVerticalGroup(
