@@ -40,7 +40,7 @@ public class Server extends UnicastRemoteObject implements IServer {
         dbu.connectDataBase();
         log.add("User database connected.");
         log.add("Server up!");
-        System.out.println(log.get(1));
+        //System.out.println(log.get(1));
         new Thread() {
             @Override
             public void run() {
@@ -203,14 +203,14 @@ public class Server extends UnicastRemoteObject implements IServer {
     public ArrayList<String> getUsers() {
         usuarios.clear();
         if (Clients.size() > 0) {
-            System.out.println("\nObtener Usuarios.");
+            //System.out.println("\nObtener Usuarios.");
             Iterator users = Clients.values().iterator();
             while (users.hasNext()) {
                 Object item = users.next();
                 
                 try {
                     usuarios.add(""+((IClient) item).getUser());
-                    System.out.print("User: " + ((IClient) item).getUser() + " Pass: " + ((IClient) item).getPass() + "\n");
+                    //System.out.print("User: " + ((IClient) item).getUser() + " Pass: " + ((IClient) item).getPass() + "\n");
                 } catch (RemoteException ex) {
                     System.out.println("Error getting client information.");
                 }

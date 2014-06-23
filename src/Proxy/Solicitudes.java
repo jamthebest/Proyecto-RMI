@@ -38,9 +38,7 @@ public class Solicitudes extends javax.swing.JFrame {
         this.setVisible(true);
         final javax.swing.DefaultListModel model = new javax.swing.DefaultListModel();
         String x = db.getClient(cliente.getUser())[3];
-        System.out.println(x);
         for(String u:usuarios){
-            System.out.println(u);
             if(!u.equals(x)){
                 model.addElement(u);
             }

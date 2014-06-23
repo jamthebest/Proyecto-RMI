@@ -31,7 +31,7 @@ public class dbUsers {
             connect = DriverManager.getConnection(servidor, usuarioDB, passwordDB);
             //connect = DriverManager.getConnection("jdbc:mysql://localhost/db_os_users?"
               //+ "user=root");//&password=123456");
-            System.out.println("se conecto");
+            //System.out.println("se conecto");
         } catch (SQLException ex) {
             System.out.println("Error, No se pudo conectar a la base de datos!\n" + ex);
         }/*finally {
@@ -120,7 +120,7 @@ public class dbUsers {
     
     public void setClienteOnline(String u){
         try {
-            System.out.print(u);
+            //System.out.print(u);
             preparedStatement = connect
                     .prepareStatement("UPDATE `db_os_users`.`usuarios` SET  `estado` = 1 WHERE username = '"+u+"'");
             preparedStatement.executeUpdate();
@@ -131,7 +131,7 @@ public class dbUsers {
     }
     public void setClienteOffline(String u){
         try {
-            System.out.print(u);
+            //System.out.print(u);
             preparedStatement = connect
                     .prepareStatement("UPDATE `db_os_users`.`usuarios` SET  `estado` = 0 WHERE username = '"+u+"'");
             preparedStatement.executeUpdate();

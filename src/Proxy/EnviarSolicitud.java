@@ -37,9 +37,7 @@ public class EnviarSolicitud extends javax.swing.JFrame {
         this.setVisible(true);
         final DefaultListModel model = new DefaultListModel();
         String x = db.getClient(cliente.getUser())[3];
-        System.out.println(x);
         for(String u:usuarios){
-            System.out.println(u);
             if(!u.equals(x)){
                 model.addElement(u);
             }

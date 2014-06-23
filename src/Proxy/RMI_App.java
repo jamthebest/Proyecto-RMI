@@ -290,7 +290,6 @@ public class RMI_App extends javax.swing.JFrame {
             IServer Server = (IServer) Reg.lookup("Chat");
         
             if(Server.authenClient(txtUser.getText(),txtPassword.getText())){
-                System.out.println("entra");
                 this.dispose();
                 //Random r = new Random();
                 //String u = String.valueOf(10000 + r.nextInt(9999)), p = u;

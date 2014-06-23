@@ -58,17 +58,9 @@ public class Post extends javax.swing.JFrame {
             
             //System.out.println("User: "+user+"\nComment: "+comment+"\nImagen: "+imagen);
             
-            ImageIcon ic = new ImageIcon(imagen);
-            Image img = ic.getImage();
-            BufferedImage bi = new BufferedImage(78, 78, BufferedImage.TYPE_INT_ARGB);
-            Graphics g = bi.createGraphics();
-            g.drawImage(img, 0, 0, 78, 78, null);
-            ImageIcon newIcon = new ImageIcon(bi);
-            GlobalImg = imagen;
-            
             x[0] = user;
             x[1] = comment;
-            x[2] = GlobalImg;
+            x[2] = imagen;
             modelo.addRow(x);
             
            // tablePosts.setValueAt(newIcon, i-1, 2);
@@ -268,20 +260,25 @@ public class Post extends javax.swing.JFrame {
 class ImageRenderer extends DefaultTableCellRenderer {
   JLabel lbl = new JLabel();
 
-  ImageIcon icon = new ImageIcon(GlobalImg);
-  
   @Override
   public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-      boolean hasFocus, int row, int column) {
-    lbl.setText((String) value);
-    lbl.setIcon(icon);
+    boolean hasFocus, int row, int column) {
+    //lbl.setText((String) value);
+    ImageIcon ic = new ImageIcon((String) value);
+    Image img = ic.getImage();
+    int ancho = Math.abs(ic.getIconWidth() - Math.abs(ic.getIconHeight()-78));
+    BufferedImage bi = new BufferedImage(ancho, 78, BufferedImage.TYPE_INT_ARGB);
+    Graphics g = bi.createGraphics();
+    g.drawImage(img, 0, 0, ancho, 78, null);
+    ImageIcon newIcon = new ImageIcon(bi);
+            
+            
+    lbl.setIcon(newIcon);
     return lbl;
   }
 }
 
     
-    
-    public String GlobalImg="";
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed

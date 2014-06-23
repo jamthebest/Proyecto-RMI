@@ -80,7 +80,7 @@ public class LandingV2 extends javax.swing.JFrame {
                     }
                     agregarMensaje("Chateando con: "+lista.getSelectedValue().toString());
                     try {                        
-                        System.out.println("id obtenido es: "+client.getServer().getUserIdByUsername(lista.getSelectedValue().toString()));
+                        //System.out.println("id obtenido es: "+client.getServer().getUserIdByUsername(lista.getSelectedValue().toString()));
                         chatUser = (int) client.getServer().getUserIdByUsername(lista.getSelectedValue().toString());
                         ArrayList<Message> mensaje = client.getServer().getConversationFromDatabase(client.getID(),chatUser);
                         
@@ -91,7 +91,7 @@ public class LandingV2 extends javax.swing.JFrame {
                             } else{
                                 recibirMensaje(msj.getMessage(),""+msj.getEnd(),0);
                             }
-                            System.out.println("el end es: "+msj.getEnd());
+                            //System.out.println("el end es: "+msj.getEnd());
                             
                         }
                     } catch (RemoteException ex) {
